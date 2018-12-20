@@ -36,7 +36,7 @@ def complete_path(text, state):
 
 
 def find_clang_format():
-    versions = ('4.0', '3.9', '3.8')
+    versions = ('6.0', '5.0', '4.0', '3.9', '3.8')
     for v in versions:
         candidate = 'clang-format-' + v
         if os.system('which ' + candidate + ' > /dev/null') == 0:
@@ -71,7 +71,7 @@ else:
     print
     print "Supply the executable for your clang formater:"
 
-    user_input = raw_input("[clang-format-3.8]:  ")
+    user_input = raw_input("[clang-format]:  ")
     clang = user_input if user_input != "" else "clang-format-3.8"
 
 exec_policy = {'cpp': ' -name "*.h" -or -name "*.hpp" -or -name "*.cpp" | xargs ' + clang + ' -i -style=file',  # CPP
